@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from "react";
+import { ChakraProvider } from "@chakra-ui/react";
+import Login from "./views/Login";
+import Register from "./views/Register";
+import Dashboard from "./views/Dashboard";
+// import Error from "./views/Error";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          {/* 
+        
+        <Route exact path="/dashboard">
+          <Dashboard />
+        </Route>
+        <Route path="/complaints/:id">
+          <ComplaintDetails />
+        </Route>
+        <Route path="*">
+          <Error />
+        </Route> */}
+        </Switch>
+      </Router>
+    </ChakraProvider>
   );
 }
 
