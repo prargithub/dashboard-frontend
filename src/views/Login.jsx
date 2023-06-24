@@ -118,9 +118,11 @@ export default function Login() {
                 sm: "2rem",
               }}
               variant="outline"
-              color="white"
+              color="gray.400"
             >
-              Login
+              <Link as={RouterLink} to="/dashboard">
+                Login{" "}
+              </Link>
             </Button>
           </Flex>
           <Text
